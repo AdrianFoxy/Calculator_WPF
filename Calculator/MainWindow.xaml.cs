@@ -109,7 +109,6 @@ namespace Calculator
             }
         }
 
-
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && int.TryParse(button.Content?.ToString(), out int selectedValue))
@@ -120,6 +119,28 @@ namespace Calculator
             }
         }
 
+        private void btnMinimaza_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaximazi_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+                WindowState = WindowState.Normal;
+            else WindowState = WindowState.Maximized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            // Application.Current.Shutdown();
+            Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 
     public enum SelectedOperator
